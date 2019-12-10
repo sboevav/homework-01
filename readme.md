@@ -1,5 +1,33 @@
 # Решение ДЗ сборки ядра из исходников 
 
+Как я уже описал раньше в третьем ДЗ, это задание пытался отработать на виртуалке под win 10 и win 7. Но после пары недель мучений это так и не удалось. Возможно, это особенности виртуалки под windows, а может дело в каких-то настройках, которые еще пока не освоил. После перехода на ubuntu это задание отработало сразу.  
+Основное задание сделано без описания выполняемых действий, т.к. не ожидал что сразу получится :-). Но, собственно, просто выполнены последовательно все команды из методички, без всяких изменений. В результате получен образ, создан Vagrantfile и протестирована его загрузка в каталоге test.  
+
+Публикация образа в Vagrant Cloud:  
+		aleksei@linux:~/linux/homework-01/packer$ vagrant cloud publish --release sboevav/centos-7-5 1.0 virtualbox centos-7.7.1908-kernel-5-x86_64-Minimal.box  
+	You are about to publish a box on Vagrant Cloud with the following options:  
+	sboevav/centos-7-5:   (v1.0) for provider 'virtualbox'  
+	Automatic Release:     true  
+	Do you wish to continue? [y/N] y  
+	==> cloud: Creating a box entry...  
+	==> cloud: Creating a version entry...  
+	==> cloud: Creating a provider entry...  
+	==> cloud: Uploading provider with file /home/aleksei/linux/homework-01/packer/centos-7.7.1908-kernel-5-x86_64-Minimal.box  
+	==> cloud: Releasing box...  
+	Complete! Published sboevav/centos-7-5  
+	tag:             sboevav/centos-7-5  
+	username:        sboevav  
+	name:            centos-7-5  
+	private:         false  
+	downloads:       0  
+	created_at:      2019-12-10T22:51:29.083+04:00  
+	updated_at:      2019-12-10T22:52:52.424+04:00  
+	current_version: 1.0  
+	providers:       virtualbox  
+	old_versions:    ...  
+
+# Решение ДЗ сборки ядра из исходников 
+
 1. Посмотрим текущую версия ядра  
 		[vagrant@kernel-update ~]$ uname -r  
 	3.10.0-957.12.2.el7.x86_64

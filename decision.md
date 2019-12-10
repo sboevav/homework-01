@@ -5,7 +5,7 @@
 	3.10.0-957.12.2.el7.x86_64
 
 2. Установим wget  
-		[vagrant@kernel-update ~]$ sudo yum install wget
+		[vagrant@kernel-update ~]$ sudo yum install wget  
 	...  
 
 	Installed:  
@@ -27,13 +27,13 @@
 	2019-12-06 10:22:59 (516 KB/s) - 'linux-5.4.tar.xz' saved [109441440/109441440]  
 
 4. Распаковываем скачанный архив  
-		[root@kernel-update vagrant]# tar -xvf linux-5.4.tar.xz -C /usr/src
+		[root@kernel-update vagrant]# tar -xvf linux-5.4.tar.xz -C /usr/src  
 
 5. Переходим в каталог, куда распаковали исходники ядра  
-		[root@kernel-update src]# cd /usr/src/linux-5.4/
+		[root@kernel-update src]# cd /usr/src/linux-5.4/  
 
 6. Устанавливаем инструменты для компиляции пакетов  
-		[root@kernel-update src]# yum groupinstall "Development Tools"
+		[root@kernel-update src]# yum groupinstall "Development Tools"  
 	...  
 
 	Dependency Updated:  
@@ -58,7 +58,7 @@
 	Complete!  
 
 8. Создаем свою конфигурацию для ядра  
-		[root@kernel-update src]# make menuconfig
+		[root@kernel-update src]# make menuconfig  
 	...  
 	*** End of the configuration.  
 	*** Execute 'make' to start the build or try 'make help'.  
@@ -105,7 +105,7 @@
 	GRUB_DISABLE_RECOVERY="true"  
 
 13. Применяем настройки для grub:  
-		[root@kernel-update linux-5.4]# grub2-mkconfig -o /boot/grub2/grub.cfg
+		[root@kernel-update linux-5.4]# grub2-mkconfig -o /boot/grub2/grub.cfg  
 	Generating grub configuration file ...  
 	Found linux image: /boot/vmlinuz-5.4.0  
 	Found initrd image: /boot/initramfs-5.4.0.img  
@@ -118,7 +118,7 @@
 	5.4.0  
 
 15. Перезагружаем виртуалку еще раз и выбираем в меню загрузки систему со старой версией ядра, загружаемся и проверяем версию ядра  
-		[vagrant@kernel-update ~]$ uname -r
+		[vagrant@kernel-update ~]$ uname -r  
 	3.10.0-957.12.2.el7.x86_64  
 
 
